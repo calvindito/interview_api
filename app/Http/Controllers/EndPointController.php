@@ -38,7 +38,7 @@ class EndPointController extends Controller {
             } else if($request->type == 'motor_cycles') {
                 $data = MotorCycle::where(function($query) use ($request) {
                         if($request->machine) {
-                            $query->where('machine', 'like', "%$request->machine%");
+                            $query->where('machine', $request->machine);
                         }
                     })
                     ->paginate($per_page);
